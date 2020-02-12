@@ -10,11 +10,11 @@ export const Card = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
-const SharedStyleDropdownMenuToggle = css`
+const SharedStyleDropdownMenuElmToggle = css`
   background: rgba(0, 0, 0, 0.05);
 `;
 
-export const DropdownMenu = styled.div`
+export const DropdownMenuElm = styled.div`
   position: absolute;
   right: 0;
   top: 0;
@@ -26,23 +26,29 @@ export const DropdownMenu = styled.div`
     transition: background 0.25s;
 
     &:hover {
-      ${SharedStyleDropdownMenuToggle}
+      ${SharedStyleDropdownMenuElmToggle}
     }
 
     &.active {
-      ${SharedStyleDropdownMenuToggle}
+      ${SharedStyleDropdownMenuElmToggle}
     }
+
+    /* .material-icons {
+      z-index: 99999;
+      display: block;
+      color: #000;
+    } */
   }
 `;
 
 export const Menu = styled.div`
-  ${DropdownMenu} & {
+  ${DropdownMenuElm} & {
     position: absolute;
     right: 25px;
     top: 10px;
     overflow: hidden;
-    width: 0;
-    height: 0;
+    width: ${props => (props.active ? "120px" : "0")};
+    height: ${props => (props.active ? "120px" : "0")};
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 9999;
   }
